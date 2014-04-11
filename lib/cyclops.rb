@@ -207,22 +207,24 @@ class Cyclops
 
   def option_parser
     OptionParser.new { |opts|
+      opts.extend(OptionParserExtension)
+
       opts.banner = usage
 
       pre_opts(opts)
 
-      opts.separator ''
+      opts.separator
       opts.separator 'Options:'
 
       config_opts(opts)
       opts(opts)
 
-      opts.separator ''
+      opts.separator
       opts.separator 'Generic options:'
 
       generic_opts(opts)
       post_opts(opts)
-    }.extend(OptionParserExtension)
+    }
   end
 
   def pre_opts(opts)
@@ -234,9 +236,9 @@ class Cyclops
         File.readable?(config) ? 'present' : 'currently not present']
     end
 
-    opts.on('-c', '--config FILE', desc) { |file| options[:config] = file }
+    opts.option(:config__FILE, desc)
 
-    opts.separator ''
+    opts.separator
   end
 
   def opts(opts)
@@ -245,31 +247,22 @@ class Cyclops
   def verbose_opts(opts)
     verbose, debug = defaults.key?(:verbose), defaults.key?(:debug)
 
-    if verbose
-      opts.on('-v', '--verbose', 'Print verbose output') {
-        options[:verbose] = true
-      }
-    end
+    opts.switch(:verbose, 'Print verbose output') if verbose
 
-    if debug
-      msg = "; #{debug_message}" if respond_to?(:debug_message, true)
+    msg = "; #{debug_message}" if respond_to?(:debug_message, true)
+    opts.switch(:debug, :D, "Print debug output#{msg}") if debug
 
-      opts.on('-D', '--debug', "Print debug output#{msg}") {
-        options[:debug] = true
-      }
-    end
-
-    opts.separator '' if verbose || debug
+    opts.separator if verbose || debug
   end
 
   def generic_opts(opts)
     verbose_opts(opts)
 
-    opts.on('-h', '--help', 'Print this help message and exit') {
+    opts.option(:help, 'Print this help message and exit') {
       shut opts
     }
 
-    opts.on('--version', 'Print program version and exit') {
+    opts.option('version', 'Print program version and exit') {
       shut "#{progname} v#{version}"
     }
   end
@@ -277,14 +270,7 @@ class Cyclops
   def post_opts(opts)
   end
 
-  module OptionParserExtension
-
-    KEY_POOL = ('A'..'Z').to_a + ('a'..'z').to_a + ('0'..'9').to_a
-
-    def keys
-      { :used => keys = top.short.keys, :free => KEY_POOL - keys }
-    end
-
-  end
-
 end
+
+require_relative 'cyclops/version'
+require_relative 'cyclops/option_parser_extension'
