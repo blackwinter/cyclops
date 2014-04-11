@@ -2,6 +2,11 @@
 
 = Revision history for cyclops
 
+== 0.0.1 [2014-04-11]
+
+* First release (extracted from ruby-nuggets).
+* Added some OptionParser convenience methods.
+
 == 0.0.0 [2014-04-11]
 
 * Birthday :-)
