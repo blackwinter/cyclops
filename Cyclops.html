@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Cyclops - cyclops Application documentation (v0.0.1)</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Cyclops/OptionParserExtension.html">Cyclops::OptionParserExtension</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-abort">#abort</a>
+    
+    <li ><a href="#method-i-agree">#agree</a>
+    
+    <li ><a href="#method-i-ask">#ask</a>
+    
+    <li ><a href="#method-i-askpass">#askpass</a>
+    
+    <li ><a href="#method-i-config_opts">#config_opts</a>
+    
+    <li ><a href="#method-i-defaults">#defaults</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-exit">#exit</a>
+    
+    <li ><a href="#method-i-generic_opts">#generic_opts</a>
+    
+    <li ><a href="#method-i-highline">#highline</a>
+    
+    <li ><a href="#method-i-init">#init</a>
+    
+    <li ><a href="#method-i-load_config">#load_config</a>
+    
+    <li ><a href="#method-i-merge_config">#merge_config</a>
+    
+    <li ><a href="#method-i-open_file_or_std">#open_file_or_std</a>
+    
+    <li ><a href="#method-i-option_parser">#option_parser</a>
+    
+    <li ><a href="#method-i-opts">#opts</a>
+    
+    <li ><a href="#method-i-parent_const_get">#parent_const_get</a>
+    
+    <li ><a href="#method-i-parse_options">#parse_options</a>
+    
+    <li ><a href="#method-i-post_opts">#post_opts</a>
+    
+    <li ><a href="#method-i-pre_opts">#pre_opts</a>
+    
+    <li ><a href="#method-i-progname">#progname</a>
+    
+    <li ><a href="#method-i-puts">#puts</a>
+    
+    <li ><a href="#method-i-quit">#quit</a>
+    
+    <li ><a href="#method-i-reset">#reset</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-shut">#shut</a>
+    
+    <li ><a href="#method-i-usage">#usage</a>
+    
+    <li ><a href="#method-i-verbose_opts">#verbose_opts</a>
+    
+    <li ><a href="#method-i-version">#version</a>
+    
+    <li ><a href="#method-i-warn">#warn</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Cyclops">
+  <h1 id="class-Cyclops" class="class">
+    class Cyclops
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">config</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-prog" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">prog</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stderr" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stderr</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stdin" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stdin</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stdout" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stdout</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(defaults = nil, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">defaults</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@defaults</span>, <span class="ruby-ivar">@prog</span> = <span class="ruby-identifier">defaults</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">defaults</span>, <span class="ruby-identifier">$0</span>
+
+  <span class="ruby-identifier">init</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+
+  <span class="ruby-comment"># prevent backtrace on ^C</span>
+  <span class="ruby-identifier">trap</span>(<span class="ruby-value">:INT</span>) { <span class="ruby-identifier">exit</span> <span class="ruby-value">130</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-defaults" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">defaults</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="defaults-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">defaults</span>
+  {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">new</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-progname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">progname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="progname-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">progname</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">prog</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset</span><span
+            class="method-args">(stdin = STDIN, stdout = STDOUT, stderr = STDERR)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>(<span class="ruby-identifier">stdin</span> = <span class="ruby-constant">STDIN</span>, <span class="ruby-identifier">stdout</span> = <span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">stderr</span> = <span class="ruby-constant">STDERR</span>)
+  <span class="ruby-ivar">@stdin</span>, <span class="ruby-ivar">@stdout</span>, <span class="ruby-ivar">@stderr</span> = <span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span>
+  <span class="ruby-ivar">@options</span>, <span class="ruby-ivar">@config</span> = {}, {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(arguments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">arguments</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&#39;must be implemented by subclass&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-usage" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">usage</span><span
+            class="method-args">(prog)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="usage-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">usage</span>(<span class="ruby-identifier">prog</span>)
+  <span class="ruby-node">&quot;Usage: #{prog} [-h|--help] [options]&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">version</span>
+  <span class="ruby-identifier">parent_const_get</span>(<span class="ruby-value">:VERSION</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-abort" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">abort</span><span
+            class="method-args">(msg = nil, status = 1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="abort-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">abort</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>
+  <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-agree" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">agree</span><span
+            class="method-args">(question, character = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="agree-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">agree</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">character</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">highline</span>.<span class="ruby-identifier">agree</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">character</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ask" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask</span><span
+            class="method-args">(question, echo = true) { |q| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ask-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">echo</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">highline</span>.<span class="ruby-identifier">ask</span>(<span class="ruby-identifier">question</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">q</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">q</span>.<span class="ruby-identifier">echo</span> = <span class="ruby-identifier">echo</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-askpass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">askpass</span><span
+            class="method-args">(question, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="askpass-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">askpass</span>(<span class="ruby-identifier">question</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">ask</span>(<span class="ruby-identifier">question</span>, <span class="ruby-keyword">false</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-config_opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">config_opts</span><span
+            class="method-args">(opts, desc = 'Path to config file (YAML)')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="config_opts-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">config_opts</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">desc</span> = <span class="ruby-string">&#39;Path to config file (YAML)&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span> = <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:config</span>) { <span class="ruby-keyword">return</span> }
+    <span class="ruby-identifier">desc</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39; [Default: %s (%s)]&#39;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">config</span>,
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">config</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&#39;present&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;currently not present&#39;</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">option</span>(<span class="ruby-value">:config__FILE</span>, <span class="ruby-identifier">desc</span>)
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exit</span><span
+            class="method-args">(status = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exit-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generic_opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generic_opts</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generic_opts-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generic_opts</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">verbose_opts</span>(<span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">option</span>(<span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Print this help message and exit&#39;</span>) {
+    <span class="ruby-identifier">shut</span> <span class="ruby-identifier">opts</span>
+  }
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">option</span>(<span class="ruby-string">&#39;version&#39;</span>, <span class="ruby-string">&#39;Print program version and exit&#39;</span>) {
+    <span class="ruby-identifier">shut</span> <span class="ruby-node">&quot;#{progname} v#{version}&quot;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-highline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">highline</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="highline-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">highline</span>
+  <span class="ruby-ivar">@highline</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">HighLine</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stdout</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-init" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">init</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="init-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">init</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">reset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_config</span><span
+            class="method-args">(file = options[:config] || default = defaults[:config])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_config-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">file</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:config</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">default</span> = <span class="ruby-identifier">defaults</span>[<span class="ruby-value">:config</span>])
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">file</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-ivar">@config</span> = <span class="ruby-constant">SafeYAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">file</span>, <span class="ruby-value">:deserialize_symbols</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">quit</span> <span class="ruby-node">&quot;No such file: #{file}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">default</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merge_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge_config</span><span
+            class="method-args">(args = [config, defaults])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="merge_config-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge_config</span>(<span class="ruby-identifier">args</span> = [<span class="ruby-identifier">config</span>, <span class="ruby-identifier">defaults</span>])
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>)
+  } }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open_file_or_std" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_file_or_std</span><span
+            class="method-args">(file, write = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open_file_or_std-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_file_or_std</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">write</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">file</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;-&#39;</span>
+    <span class="ruby-identifier">write</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">stdout</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">stdin</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">gz</span> = <span class="ruby-identifier">file</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\.gz\z/i</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">write</span>
+      <span class="ruby-identifier">gz</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Zlib</span><span class="ruby-operator">::</span><span class="ruby-constant">GzipWriter</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">file</span>) <span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">file</span>, <span class="ruby-string">&#39;w&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">quit</span> <span class="ruby-node">&quot;No such file: #{file}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">file</span>)
+      (<span class="ruby-identifier">gz</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Zlib</span><span class="ruby-operator">::</span><span class="ruby-constant">GzipReader</span> <span class="ruby-operator">:</span> <span class="ruby-constant">File</span>).<span class="ruby-identifier">open</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-option_parser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">option_parser</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="option_parser-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">option_parser</span>
+  <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-constant">OptionParserExtension</span>)
+
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-identifier">usage</span>
+
+    <span class="ruby-identifier">pre_opts</span>(<span class="ruby-identifier">opts</span>)
+
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span>
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&#39;Options:&#39;</span>
+
+    <span class="ruby-identifier">config_opts</span>(<span class="ruby-identifier">opts</span>)
+    <span class="ruby-identifier">opts</span>(<span class="ruby-identifier">opts</span>)
+
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span>
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&#39;Generic options:&#39;</span>
+
+    <span class="ruby-identifier">generic_opts</span>(<span class="ruby-identifier">opts</span>)
+    <span class="ruby-identifier">post_opts</span>(<span class="ruby-identifier">opts</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">opts</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="opts-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent_const_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_const_get</span><span
+            class="method-args">(const, range = 0...-1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parent_const_get-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_const_get</span>(<span class="ruby-identifier">const</span>, <span class="ruby-identifier">range</span> = <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>)
+  <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>).<span class="ruby-identifier">inject</span>([<span class="ruby-constant">Object</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>)
+  }.<span class="ruby-identifier">reverse</span>[<span class="ruby-identifier">range</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">const</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">const</span>)
+  }
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NameError</span>, <span class="ruby-node">&quot;uninitialized constant #{self}::#{const}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_options</span><span
+            class="method-args">(arguments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_options-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">arguments</span>)
+  <span class="ruby-identifier">option_parser</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">arguments</span>)
+
+  <span class="ruby-identifier">load_config</span>
+  <span class="ruby-identifier">merge_config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post_opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_opts</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="post_opts-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post_opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pre_opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pre_opts</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pre_opts-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pre_opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-puts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">puts</span><span
+            class="method-args">(*msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="puts-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
+  <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-quit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quit</span><span
+            class="method-args">(msg = nil, include_usage = msg != false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quit-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quit</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">include_usage</span> = <span class="ruby-identifier">msg</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">out</span> = []
+
+  <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{progname}: #{msg}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>
+  <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">usage</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_usage</span>
+
+  <span class="ruby-identifier">abort</span> <span class="ruby-identifier">out</span>.<span class="ruby-identifier">any?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">out</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shut" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shut</span><span
+            class="method-args">(msg = nil, status = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shut-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shut</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>
+  <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verbose_opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verbose_opts</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verbose_opts-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verbose_opts</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">verbose</span>, <span class="ruby-identifier">debug</span> = <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:verbose</span>), <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:debug</span>)
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">switch</span>(<span class="ruby-value">:verbose</span>, <span class="ruby-string">&#39;Print verbose output&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">verbose</span>
+
+  <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;; #{debug_message}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:debug_message</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">switch</span>(<span class="ruby-value">:debug</span>, <span class="ruby-value">:D</span>, <span class="ruby-node">&quot;Print debug output#{msg}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">debug</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">verbose</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">debug</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-warn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warn</span><span
+            class="method-args">(*msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="warn-source">
+            <pre><span class="ruby-comment"># File lib/cyclops.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">warn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
