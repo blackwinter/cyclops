@@ -55,7 +55,7 @@ class Cyclops
       name.split('::').inject([Object]) { |memo, name|
         memo << memo.last.const_get(name)
       }.reverse[range].each { |mod|
-        return mod.const_get(const) if mod.const_defined?(const)
+        return mod.const_get(const) if mod.const_defined?(const, false)
       }
 
       raise NameError, "uninitialized constant #{self}::#{const}"
