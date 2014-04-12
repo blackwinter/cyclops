@@ -28,6 +28,8 @@ class Cyclops
 
   module OptionParserExtension
 
+    attr_accessor :cli
+
     KEY_POOL = ('A'..'Z').to_a + ('a'..'z').to_a + ('0'..'9').to_a
 
     def keys
@@ -51,7 +53,7 @@ class Cyclops
         args.grep(/\A--/).first << " #{arg}"
 
         on(*args) { |value|
-          options[name] = value
+          cli.options[name] = value
           yield value if block_given?
         }
       else
@@ -61,7 +63,7 @@ class Cyclops
 
     def switch(name, *args)
       on(*__on_opts(name, *args)) {
-        options[name] = true
+        cli.options[name] = true
         yield if block_given?
       }
     end

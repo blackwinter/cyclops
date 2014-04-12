@@ -207,7 +207,7 @@ class Cyclops
 
   def option_parser
     OptionParser.new { |opts|
-      opts.extend(OptionParserExtension)
+      opts.extend(OptionParserExtension).cli = self
 
       opts.banner = usage
 
