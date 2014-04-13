@@ -40,48 +40,62 @@ class Cyclops
       super
     end
 
+    # Delegates to #on with some convenience shortcuts.
+    #
+    # If +name+ is a Symbol, installs both long and short options.
+    # If the first element of +args+ is a Symbol, this is installed
+    # as the short option, otherwise the first character of +name+ is
+    # installed as the short option.
+    #
+    # If +name+ is a String, installs only the long option.
+    #
+    # If +name+ contains an argument name, separated by double underscore,
+    # additionally sets the CLI's +name+ option (as a Symbol) to the
+    # provided value and calls the optional block with that value. If
+    # the argument name ends with a question mark, the value is marked
+    # as optional.
     def option(name, *args, &block)
       if name =~ /(\w+)__(\w+)(\?)?\z/
         sym = name.is_a?(Symbol)
 
         name, arg, opt = $1, $2, !!$3
-        name = name.to_sym if sym
-
-        args = __on_opts(name, *args)
+        __on_opts(name, args, sym)
 
         arg = "[#{arg}]" if opt
         args.grep(/\A--/).first << " #{arg}"
 
         on(*args) { |value|
-          cli.options[name] = value
+          cli.options[name.to_sym] = value
           yield value if block_given?
         }
       else
-        on(*__on_opts(name, *args), &block)
+        on(*__on_opts(name, args), &block)
       end
     end
 
+    # Delegates to #on with some convenience shortcuts.
+    #
+    # If +name+ is a Symbol, installs both long and short options.
+    # If the first element of +args+ is a Symbol, this is installed
+    # as the short option, otherwise the first character of +name+ is
+    # installed as the short option.
+    #
+    # If +name+ is a String, installs only the long option.
+    #
+    # Sets the CLI's +name+ option (as a Symbol) to +true+ and calls
+    # the optional block (with no argument).
     def switch(name, *args)
-      on(*__on_opts(name, *args)) {
-        cli.options[name] = true
+      on(*__on_opts(name, args)) {
+        cli.options[name.to_sym] = true
         yield if block_given?
       }
     end
 
     private
 
-    def __on_opts(name, *args)
-      case name
-        when Symbol
-          long = "--#{name.to_s.tr('_', '-')}"
-
-          args.unshift(args.first.is_a?(Symbol) ?
-            "-#{args.shift}" : long[1, 2], long)
-        when String
-          args.unshift("--#{name}")
-        else
-          args.unshift(name)
-      end
+    def __on_opts(name, args, sym = name.is_a?(Symbol))
+      args.insert(0, "-#{args[0].is_a?(Symbol) ? args.shift : name[0]}") if sym
+      args.insert(sym ? 1 : 0, "--#{name.to_s.tr('_', '-')}")
     end
 
   end
