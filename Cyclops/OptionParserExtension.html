@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>module Cyclops::OptionParserExtension - cyclops Application documentation (v0.0.2)</title>
+<title>module Cyclops::OptionParserExtension - cyclops Application documentation (v0.0.3)</title>
 
 <link href="../fonts.css" rel="stylesheet">
 <link href="../rdoc.css" rel="stylesheet">
@@ -191,31 +191,42 @@
 
         <div class="method-description">
           
-          
+          <p>Delegates to on with some convenience shortcuts.</p>
+
+<p>If <code>name</code> is a Symbol, installs both long and short options. If
+the first element of <code>args</code> is a Symbol, this is installed as
+the short option, otherwise the first character of <code>name</code> is
+installed as the short option.</p>
+
+<p>If <code>name</code> is a String, installs only the long option.</p>
+
+<p>If <code>name</code> contains an argument name, separated by double
+underscore, additionally sets the CLI&#39;s <code>name</code> option (as a
+Symbol) to the provided value and calls the optional block with that value.
+If the argument name ends with a question mark, the value is marked as
+optional.</p>
           
           
 
           
           <div class="method-source-code" id="option-source">
-            <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 43</span>
+            <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">option</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(\w+)__(\w+)(\?)?\z/</span>
     <span class="ruby-identifier">sym</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
 
     <span class="ruby-identifier">name</span>, <span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opt</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>, <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-node">$3</span>
-    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sym</span>
-
-    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">sym</span>)
 
     <span class="ruby-identifier">arg</span> = <span class="ruby-node">&quot;[#{arg}]&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span>
     <span class="ruby-identifier">args</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp">/\A--/</span>).<span class="ruby-identifier">first</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; #{arg}&quot;</span>
 
     <span class="ruby-identifier">on</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">options</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+      <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">options</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
       <span class="ruby-keyword">yield</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
     }
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">on</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>), <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">on</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>), <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -279,16 +290,26 @@
 
         <div class="method-description">
           
-          
+          <p>Delegates to on with some convenience shortcuts.</p>
+
+<p>If <code>name</code> is a Symbol, installs both long and short options. If
+the first element of <code>args</code> is a Symbol, this is installed as
+the short option, otherwise the first character of <code>name</code> is
+installed as the short option.</p>
+
+<p>If <code>name</code> is a String, installs only the long option.</p>
+
+<p>Sets the CLI&#39;s <code>name</code> option (as a Symbol) to
+<code>true</code> and calls the optional block (with no argument).</p>
           
           
 
           
           <div class="method-source-code" id="switch-source">
-            <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 64</span>
+            <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">switch</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-  <span class="ruby-identifier">on</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)) {
-    <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">options</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">on</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>)) {
+    <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">options</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-keyword">true</span>
     <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
   }
 <span class="ruby-keyword">end</span></pre>
@@ -314,7 +335,7 @@
         
         <div class="method-heading">
           <span class="method-name">__on_opts</span><span
-            class="method-args">(name, *args)</span>
+            class="method-args">(name, args, sym = name.is_a?(Symbol))</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -329,19 +350,10 @@
 
           
           <div class="method-source-code" id="__on_opts-source">
-            <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 73</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">name</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
-      <span class="ruby-identifier">long</span> = <span class="ruby-node">&quot;--#{name.to_s.tr(&#39;_&#39;, &#39;-&#39;)}&quot;</span>
-
-      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">?</span>
-        <span class="ruby-node">&quot;-#{args.shift}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">long</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], <span class="ruby-identifier">long</span>)
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
-      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-node">&quot;--#{name}&quot;</span>)
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">name</span>)
-  <span class="ruby-keyword">end</span>
+            <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">sym</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>))
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-value">0</span>, <span class="ruby-node">&quot;-#{args[0].is_a?(Symbol) ? args.shift : name[0]}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">sym</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">sym</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-node">&quot;--#{name.to_s.tr(&#39;_&#39;, &#39;-&#39;)}&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
