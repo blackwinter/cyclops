@@ -2,6 +2,10 @@
 
 = Revision history for cyclops
 
+== 0.0.3 [2014-04-14]
+
+* Always set symbol key in options hash.
+
 == 0.0.2 [2014-04-12]
 
 * Prevent Cyclops::VERSION from clobbering Subclass::VERSION.

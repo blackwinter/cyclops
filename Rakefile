@@ -7,7 +7,8 @@ begin
     gem: {
       name:         %q{cyclops},
       version:      Cyclops::VERSION,
-      summary:      %q{A command-line option parser.},
+      summary:      %q{A command-line option parser based on optparse.},
+      description:  %q{Provides a convenient interface around optparse.},
       author:       %q{Jens Wille},
       email:        %q{jens.wille@gmail.com},
       license:      %q{AGPL-3.0},

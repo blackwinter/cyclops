@@ -2,12 +2,13 @@
 
 == VERSION
 
-This documentation refers to cyclops version 0.0.2
+This documentation refers to cyclops version 0.0.3
 
 
 == DESCRIPTION
 
-As if there weren't enough CLI libraries already...
+Provides a convenient interface around optparse. As if there weren't
+enough CLI libraries already...
 
 
 == LINKS
