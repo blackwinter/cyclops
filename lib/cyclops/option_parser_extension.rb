@@ -55,9 +55,9 @@ class Cyclops
     # the argument name ends with a question mark, the value is marked
     # as optional.
     def option(name, *args, &block)
-      if name =~ /(\w+)__(\w+)(\?)?\z/
-        sym = name.is_a?(Symbol)
+      sym = name.is_a?(Symbol)
 
+      if name =~ /(\w+)__(\w+)(\?)?\z/
         name, arg, opt = $1, $2, !!$3
         __on_opts(name, args, sym)
 
@@ -69,7 +69,7 @@ class Cyclops
           yield value if block_given?
         }
       else
-        on(*__on_opts(name, args), &block)
+        on(*__on_opts(name, args, sym), &block)
       end
     end
 
@@ -84,16 +84,35 @@ class Cyclops
     #
     # Sets the CLI's +name+ option (as a Symbol) to +true+ and calls
     # the optional block (with no argument).
+    #
+    # If +name+ ends with a question mark, installs only the long option
+    # and sets the CLI's +name+ option (as a Symbol) to either +true+ or
+    # +false+, depending on whether <tt>--name</tt> or <tt>--no-name</tt>
+    # was given on the command line.
     def switch(name, *args)
-      on(*__on_opts(name, args)) {
-        cli.options[name.to_sym] = true
-        yield if block_given?
-      }
+      sym = name.is_a?(Symbol)
+
+      name, opt = $1, !!$2 if name =~ /(\w+)(\?)?\z/
+
+      if opt
+        __on_opts(name, args, false)
+        args.first.insert(2, '[no-]')
+
+        on(*args) { |value|
+          cli.options[name.to_sym] = value
+          yield if block_given?
+        }
+      else
+        on(*__on_opts(name, args, sym)) {
+          cli.options[name.to_sym] = true
+          yield if block_given?
+        }
+      end
     end
 
     private
 
-    def __on_opts(name, args, sym = name.is_a?(Symbol))
+    def __on_opts(name, args, sym)
       args.insert(0, "-#{args[0].is_a?(Symbol) ? args.shift : name[0]}") if sym
       args.insert(sym ? 1 : 0, "--#{name.to_s.tr('_', '-')}")
     end
