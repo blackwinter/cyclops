@@ -247,7 +247,9 @@ class Cyclops
   def verbose_opts(opts)
     verbose, debug = defaults.key?(:verbose), defaults.key?(:debug)
 
-    opts.switch(:verbose, 'Print verbose output') if verbose
+    opts.switch(:verbose, 'Print verbose output') {
+      warn "#{progname} v#{version}"
+    } if verbose
 
     msg = "; #{debug_message}" if respond_to?(:debug_message, true)
     opts.switch(:debug, :D, "Print debug output#{msg}") if debug
