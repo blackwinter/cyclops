@@ -23,4 +23,4 @@ script:
   rake spec
 
 install:
-  gem install --development cyclops
+  gem install --prerelease --development cyclops
