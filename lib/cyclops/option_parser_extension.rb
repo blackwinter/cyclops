@@ -30,10 +30,14 @@ class Cyclops
 
     attr_accessor :cli
 
+    OPTION_RE = /(\w+)__(\w+)(\?)?\z/
+
+    SWITCH_RE = /(\w+)(\?)?\z/
+
     KEY_POOL = ('A'..'Z').to_a + ('a'..'z').to_a + ('0'..'9').to_a
 
     def keys
-      { :used => keys = top.short.keys, :free => KEY_POOL - keys }
+      { used: keys = top.short.keys, free: KEY_POOL - keys }
     end
 
     def separator(string = '')
@@ -57,7 +61,7 @@ class Cyclops
     def option(name, *args, &block)
       sym = name.is_a?(Symbol)
 
-      if name =~ /(\w+)__(\w+)(\?)?\z/
+      if name =~ OPTION_RE
         name, arg, opt = $1, $2, !!$3
         __on_opts(name, args, sym)
 
@@ -92,7 +96,7 @@ class Cyclops
     def switch(name, *args)
       sym = name.is_a?(Symbol)
 
-      name, opt = $1, !!$2 if name =~ /(\w+)(\?)?\z/
+      name, opt = $1, !!$2 if name =~ SWITCH_RE
 
       if opt
         __on_opts(name, args, false)

@@ -98,9 +98,7 @@ class Cyclops
     abort err.is_a?(OptionParser::ParseError) ?
       "#{err}\n#{usage}" : "#{err.backtrace.first}: #{err} (#{err.class})"
   ensure
-    options.each_value { |value|
-      value.close if value.is_a?(Zlib::GzipWriter)
-    }
+    options.each_value { |value| value.close if value.is_a?(Zlib::GzipWriter) }
   end
 
   def run(arguments)
@@ -169,14 +167,10 @@ class Cyclops
   end
 
   def open_file_or_std(file, write = false)
-    if file == '-'
-      write ? stdout : stdin
-    else
+    file == '-' ? write ? stdout : stdin : begin
       gz = file =~ /\.gz\z/i
 
-      if write
-        gz ? Zlib::GzipWriter.open(file) : File.open(file, 'w')
-      else
+      write ? gz ? Zlib::GzipWriter.open(file) : File.open(file, 'w') : begin
         quit "No such file: #{file}" unless File.readable?(file)
         (gz ? Zlib::GzipReader : File).open(file)
       end
@@ -187,7 +181,7 @@ class Cyclops
     return unless file
 
     if File.readable?(file)
-      @config = SafeYAML.load_file(file, :deserialize_symbols => true)
+      @config = SafeYAML.load_file(file, deserialize_symbols: true)
     else
       quit "No such file: #{file}" unless default
     end
