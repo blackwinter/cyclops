@@ -95,7 +95,8 @@ class Cyclops
     run(arguments)
   rescue => err
     raise if $VERBOSE
-    abort "#{err.backtrace.first}: #{err} (#{err.class})"
+    abort err.is_a?(OptionParser::ParseError) ?
+      "#{err}\n#{usage}" : "#{err.backtrace.first}: #{err} (#{err.class})"
   ensure
     options.each_value { |value|
       value.close if value.is_a?(Zlib::GzipWriter)
