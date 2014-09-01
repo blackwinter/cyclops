@@ -2,6 +2,12 @@
 
 = Revision history for cyclops
 
+== 0.0.4 [2014-09-01]
+
+* Added support for <tt>--[no-]<switch></tt>.
+* <tt>--verbose</tt> also prints program name and version.
+* Print error and usage on parse errors.
+
 == 0.0.3 [2014-04-14]
 
 * Always set symbol key in options hash.
