@@ -1,4 +1,4 @@
-require File.expand_path(%q{../lib/cyclops/version}, __FILE__)
+require_relative 'lib/cyclops/version'
 
 begin
   require 'hen'
