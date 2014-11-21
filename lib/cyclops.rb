@@ -177,6 +177,10 @@ class Cyclops
     end
   end
 
+  def config_present?(config)
+    File.readable?(config)
+  end
+
   def load_config(file = options[:config] || default = defaults[:config])
     return unless file
 
@@ -228,7 +232,7 @@ class Cyclops
   def config_opts(opts, desc = 'Path to config file (YAML)')
     if config = defaults.fetch(:config) { return }
       desc += ' [Default: %s (%s)]' % [config,
-        File.readable?(config) ? 'present' : 'currently not present']
+        config_present?(config) ? 'present' : 'currently not present']
     end
 
     opts.option(:config__FILE, desc)

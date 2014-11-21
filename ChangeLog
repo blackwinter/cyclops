@@ -2,6 +2,11 @@
 
 = Revision history for cyclops
 
+== 0.0.5 [unreleased]
+
+* Extracted Cyclops#config_present? from Cyclops#config_opts so it can be
+  overwritten in subclasses.
+
 == 0.0.4 [2014-09-01]
 
 * Added support for <tt>--[no-]<switch></tt>.
