@@ -3,7 +3,7 @@
 #                                                                             #
 # cyclops -- A command-line option parser                                     #
 #                                                                             #
-# Copyright (C) 2014 Jens Wille                                               #
+# Copyright (C) 2014-2015 Jens Wille                                          #
 #                                                                             #
 # Authors:                                                                    #
 #     Jens Wille <jens.wille@gmail.com>                                       #
@@ -95,8 +95,8 @@ class Cyclops
     run(arguments)
   rescue => err
     raise if $VERBOSE
-    abort err.is_a?(OptionParser::ParseError) ?
-      "#{err}\n#{usage}" : "#{err.backtrace.first}: #{err} (#{err.class})"
+    err.is_a?(OptionParser::ParseError) ? quit(err) :
+      abort("#{err.backtrace.first}: #{err} (#{err.class})")
   ensure
     options.each_value { |value| value.close if value.is_a?(Zlib::GzipWriter) }
   end
@@ -166,15 +166,29 @@ class Cyclops
     Kernel.exit(status)
   end
 
-  def open_file_or_std(file, write = false)
-    file == '-' ? write ? stdout : stdin : begin
-      gz = file =~ /\.gz\z/i
+  def open_file_or_std(file, mode = 'r')
+    mode = 'w' if mode == true
+    stdio?(file) ? open_std(file, mode) : open_file(file, mode)
+  end
 
-      write ? gz ? Zlib::GzipWriter.open(file) : File.open(file, 'w') : begin
-        quit "No such file: #{file}" unless File.readable?(file)
-        (gz ? Zlib::GzipReader : File).open(file)
-      end
-    end
+  def open_file(file, mode = 'r')
+    write = write?(mode) or
+      File.readable?(file) or quit "No such file: #{file}"
+
+    file =~ /\.gz\z/i ? (write ? Zlib::GzipWriter :
+      Zlib::GzipReader).open(file) : File.open(file, mode)
+  end
+
+  def open_std(file, mode = nil)
+    write?(mode) ? stdout : stdin
+  end
+
+  def write?(mode)
+    mode == true || mode =~ /w/
+  end
+
+  def stdio?(file)
+    file == '-'
   end
 
   def config_present?(config)
