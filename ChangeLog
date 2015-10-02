@@ -2,6 +2,11 @@
 
 = Revision history for cyclops
 
+== 0.2.0 [2015-10-02]
+
+* Extracted Cyclops#open_file and Cyclops#open_std from
+  Cyclops#open_file_or_std so they can be overwritten in subclasses.
+
 == 0.1.0 [2014-11-26]
 
 * Extracted Cyclops#config_present? from Cyclops#config_opts so it can be
