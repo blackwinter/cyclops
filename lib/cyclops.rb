@@ -3,7 +3,7 @@
 #                                                                             #
 # cyclops -- A command-line option parser                                     #
 #                                                                             #
-# Copyright (C) 2014-2015 Jens Wille                                          #
+# Copyright (C) 2014-2018 Jens Wille                                          #
 #                                                                             #
 # Authors:                                                                    #
 #     Jens Wille <jens.wille@gmail.com>                                       #
@@ -24,9 +24,9 @@
 ###############################################################################
 #++
 
-require 'safe_yaml/load'
-require 'optparse'
 require 'highline'
+require 'optparse'
+require 'psych'
 require 'zlib'
 
 class Cyclops
@@ -199,7 +199,7 @@ class Cyclops
     return unless file
 
     if File.readable?(file)
-      @config = SafeYAML.load_file(file, deserialize_symbols: true)
+      @config = Psych.safe_load(File.read(file), symbolize_names: true)
     else
       quit "No such file: #{file}" unless default
     end

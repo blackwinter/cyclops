@@ -13,9 +13,9 @@ begin
       email:        %q{jens.wille@gmail.com},
       license:      %q{AGPL-3.0},
       homepage:     :blackwinter,
-      dependencies: %w[highline safe_yaml],
+      dependencies: %w[highline],
 
-      required_ruby_version: '>= 1.9.3'
+      required_ruby_version: '>= 2.1'
     }
   }}
 rescue LoadError => err
