@@ -2,7 +2,7 @@
 
 == VERSION
 
-This documentation refers to cyclops version 0.2.0
+This documentation refers to cyclops version 0.3.0
 
 
 == DESCRIPTION
@@ -25,7 +25,7 @@ RubyGem::       https://rubygems.org/gems/cyclops
 
 == LICENSE AND COPYRIGHT
 
-Copyright (C) 2014-2015 Jens Wille
+Copyright (C) 2014-2018 Jens Wille
 
 cyclops is free software: you can redistribute it and/or modify it
 under the terms of the GNU Affero General Public License as published by
