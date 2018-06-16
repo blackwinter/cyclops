@@ -4,10 +4,11 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Cyclops - cyclops Application documentation (v0.2.0)</title>
+<title>class Cyclops - cyclops Application documentation (v0.3.0)</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
 </script>
 
 <script src="./js/jquery.js"></script>
@@ -175,8 +176,6 @@
   </section>
 
   
-  
-  
   <section id="5Buntitled-5D" class="documentation-section">
     
 
@@ -326,7 +325,7 @@
           
           <div class="method-source-code" id="defaults-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">defaults</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">defaults</span>
   {}
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -359,7 +358,7 @@
           
           <div class="method-source-code" id="execute-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 48</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">new</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -392,7 +391,7 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 71</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">defaults</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">defaults</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-ivar">@defaults</span>, <span class="ruby-ivar">@prog</span> = <span class="ruby-identifier">defaults</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">defaults</span>, <span class="ruby-identifier">$0</span>
 
   <span class="ruby-identifier">init</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
@@ -430,7 +429,7 @@
           
           <div class="method-source-code" id="usage-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">usage</span>(<span class="ruby-identifier">prog</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">usage</span>(<span class="ruby-identifier">prog</span>)
   <span class="ruby-node">&quot;Usage: #{prog} [-h|--help] [options]&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -463,7 +462,7 @@
           
           <div class="method-source-code" id="version-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 40</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">version</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">version</span>
   <span class="ruby-identifier">parent_const_get</span>(<span class="ruby-value">:VERSION</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -504,7 +503,7 @@
           
           <div class="method-source-code" id="parent_const_get-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 54</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_const_get</span>(<span class="ruby-identifier">const</span>, <span class="ruby-identifier">range</span> = <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parent_const_get</span>(<span class="ruby-identifier">const</span>, <span class="ruby-identifier">range</span> = <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>)
   <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>).<span class="ruby-identifier">inject</span>([<span class="ruby-constant">Object</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">memo</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>)
   }.<span class="ruby-identifier">reverse</span>[<span class="ruby-identifier">range</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span><span class="ruby-operator">|</span>
@@ -551,11 +550,11 @@
           
           <div class="method-source-code" id="execute-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 92</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">arguments</span> = <span class="ruby-constant">ARGV</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">inouterr</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute</span>(<span class="ruby-identifier">arguments</span> = <span class="ruby-constant">ARGV</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">inouterr</span>)
   <span class="ruby-identifier">reset</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">inouterr</span>)
   <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">arguments</span>)
   <span class="ruby-identifier">run</span>(<span class="ruby-identifier">arguments</span>)
-<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">err</span>
   <span class="ruby-identifier">raise</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
   <span class="ruby-identifier">err</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">quit</span>(<span class="ruby-identifier">err</span>) <span class="ruby-operator">:</span>
     <span class="ruby-identifier">abort</span>(<span class="ruby-node">&quot;#{err.backtrace.first}: #{err} (#{err.class})&quot;</span>)
@@ -592,7 +591,7 @@
           
           <div class="method-source-code" id="progname-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 80</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">progname</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">progname</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">prog</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -625,7 +624,7 @@
           
           <div class="method-source-code" id="reset-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 108</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>(<span class="ruby-identifier">stdin</span> = <span class="ruby-constant">STDIN</span>, <span class="ruby-identifier">stdout</span> = <span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">stderr</span> = <span class="ruby-constant">STDERR</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reset</span>(<span class="ruby-identifier">stdin</span> = <span class="ruby-constant">STDIN</span>, <span class="ruby-identifier">stdout</span> = <span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">stderr</span> = <span class="ruby-constant">STDERR</span>)
   <span class="ruby-ivar">@stdin</span>, <span class="ruby-ivar">@stdout</span>, <span class="ruby-ivar">@stderr</span> = <span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span>
   <span class="ruby-ivar">@options</span>, <span class="ruby-ivar">@config</span> = {}, {}
 <span class="ruby-keyword">end</span></pre>
@@ -659,7 +658,7 @@
           
           <div class="method-source-code" id="run-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 104</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">arguments</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>(<span class="ruby-identifier">arguments</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&#39;must be implemented by subclass&#39;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -692,7 +691,7 @@
           
           <div class="method-source-code" id="usage-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 84</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">usage</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">usage</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">usage</span>(<span class="ruby-identifier">prog</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -725,7 +724,7 @@
           
           <div class="method-source-code" id="version-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 88</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">version</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">version</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">version</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -766,7 +765,7 @@
           
           <div class="method-source-code" id="abort-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 155</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">abort</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-value">1</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abort</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-value">1</span>)
   <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>
   <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -784,7 +783,7 @@
         
         <div class="method-heading">
           <span class="method-name">agree</span><span
-            class="method-args">(question, character = nil, &block)</span>
+            class="method-args">(question, character = nil, &amp;block)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -800,7 +799,7 @@
           
           <div class="method-source-code" id="agree-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 134</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">agree</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">character</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">agree</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">character</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">highline</span>.<span class="ruby-identifier">agree</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">character</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -833,7 +832,7 @@
           
           <div class="method-source-code" id="ask-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 123</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">echo</span> = <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ask</span>(<span class="ruby-identifier">question</span>, <span class="ruby-identifier">echo</span> = <span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">highline</span>.<span class="ruby-identifier">ask</span>(<span class="ruby-identifier">question</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">yield</span> <span class="ruby-identifier">q</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
     <span class="ruby-identifier">q</span>.<span class="ruby-identifier">echo</span> = <span class="ruby-identifier">echo</span>
@@ -853,7 +852,7 @@
         
         <div class="method-heading">
           <span class="method-name">askpass</span><span
-            class="method-args">(question, &block)</span>
+            class="method-args">(question, &amp;block)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -869,7 +868,7 @@
           
           <div class="method-source-code" id="askpass-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 130</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">askpass</span>(<span class="ruby-identifier">question</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">askpass</span>(<span class="ruby-identifier">question</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">ask</span>(<span class="ruby-identifier">question</span>, <span class="ruby-keyword">false</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -886,7 +885,7 @@
         
         <div class="method-heading">
           <span class="method-name">config_opts</span><span
-            class="method-args">(opts, desc = 'Path to config file (YAML)')</span>
+            class="method-args">(opts, desc = &#39;Path to config file (YAML)&#39;)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -902,7 +901,7 @@
           
           <div class="method-source-code" id="config_opts-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 246</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">config_opts</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">desc</span> = <span class="ruby-string">&#39;Path to config file (YAML)&#39;</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">config_opts</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">desc</span> = <span class="ruby-string">&#39;Path to config file (YAML)&#39;</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span> = <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:config</span>) { <span class="ruby-keyword">return</span> }
     <span class="ruby-identifier">desc</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39; [Default: %s (%s)]&#39;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">config</span>,
       <span class="ruby-identifier">config_present?</span>(<span class="ruby-identifier">config</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&#39;present&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;currently not present&#39;</span>]
@@ -942,7 +941,7 @@
           
           <div class="method-source-code" id="config_present-3F-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 194</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">config_present?</span>(<span class="ruby-identifier">config</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">config_present?</span>(<span class="ruby-identifier">config</span>)
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">config</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -975,7 +974,7 @@
           
           <div class="method-source-code" id="exit-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 165</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span> = <span class="ruby-value">0</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exit</span>(<span class="ruby-identifier">status</span> = <span class="ruby-value">0</span>)
   <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1008,7 +1007,7 @@
           
           <div class="method-source-code" id="generic_opts-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 273</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">generic_opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generic_opts</span>(<span class="ruby-identifier">opts</span>)
   <span class="ruby-identifier">verbose_opts</span>(<span class="ruby-identifier">opts</span>)
 
   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">option</span>(<span class="ruby-value">:help</span>, <span class="ruby-string">&#39;Print this help message and exit&#39;</span>) {
@@ -1049,7 +1048,7 @@
           
           <div class="method-source-code" id="highline-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 119</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">highline</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">highline</span>
   <span class="ruby-ivar">@highline</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">HighLine</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stdout</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1082,7 +1081,7 @@
           
           <div class="method-source-code" id="init-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 115</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">init</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">init</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">reset</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1115,11 +1114,11 @@
           
           <div class="method-source-code" id="load_config-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 198</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">file</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:config</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">default</span> = <span class="ruby-identifier">defaults</span>[<span class="ruby-value">:config</span>])
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_config</span>(<span class="ruby-identifier">file</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:config</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">default</span> = <span class="ruby-identifier">defaults</span>[<span class="ruby-value">:config</span>])
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">file</span>
 
   <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">file</span>)
-    <span class="ruby-ivar">@config</span> = <span class="ruby-constant">SafeYAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">deserialize_symbols</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-ivar">@config</span> = <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">safe_load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file</span>), <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">true</span>)
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">quit</span> <span class="ruby-node">&quot;No such file: #{file}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">default</span>
   <span class="ruby-keyword">end</span>
@@ -1154,7 +1153,7 @@
           
           <div class="method-source-code" id="merge_config-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 208</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge_config</span>(<span class="ruby-identifier">args</span> = [<span class="ruby-identifier">config</span>, <span class="ruby-identifier">defaults</span>])
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">merge_config</span>(<span class="ruby-identifier">args</span> = [<span class="ruby-identifier">config</span>, <span class="ruby-identifier">defaults</span>])
   <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>)
   } }
@@ -1173,7 +1172,7 @@
         
         <div class="method-heading">
           <span class="method-name">open_file</span><span
-            class="method-args">(file, mode = 'r')</span>
+            class="method-args">(file, mode = &#39;r&#39;)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -1189,7 +1188,7 @@
           
           <div class="method-source-code" id="open_file-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 174</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_file</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-string">&#39;r&#39;</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">open_file</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-string">&#39;r&#39;</span>)
   <span class="ruby-identifier">write</span> = <span class="ruby-identifier">write?</span>(<span class="ruby-identifier">mode</span>) <span class="ruby-keyword">or</span>
     <span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">file</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">quit</span> <span class="ruby-node">&quot;No such file: #{file}&quot;</span>
 
@@ -1210,7 +1209,7 @@
         
         <div class="method-heading">
           <span class="method-name">open_file_or_std</span><span
-            class="method-args">(file, mode = 'r')</span>
+            class="method-args">(file, mode = &#39;r&#39;)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -1226,7 +1225,7 @@
           
           <div class="method-source-code" id="open_file_or_std-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 169</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_file_or_std</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-string">&#39;r&#39;</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">open_file_or_std</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-string">&#39;r&#39;</span>)
   <span class="ruby-identifier">mode</span> = <span class="ruby-string">&#39;w&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
   <span class="ruby-identifier">stdio?</span>(<span class="ruby-identifier">file</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">open_std</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">open_file</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1260,7 +1259,7 @@
           
           <div class="method-source-code" id="open_std-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 182</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_std</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">open_std</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">write?</span>(<span class="ruby-identifier">mode</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">stdout</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">stdin</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1293,7 +1292,7 @@
           
           <div class="method-source-code" id="option_parser-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 221</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">option_parser</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">option_parser</span>
   <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-constant">OptionParserExtension</span>).<span class="ruby-identifier">cli</span> = <span class="ruby-keyword">self</span>
 
@@ -1344,7 +1343,7 @@
           
           <div class="method-source-code" id="opts-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 257</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">opts</span>(<span class="ruby-identifier">opts</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -1376,7 +1375,7 @@
           
           <div class="method-source-code" id="parse_options-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 214</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">arguments</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_options</span>(<span class="ruby-identifier">arguments</span>)
   <span class="ruby-identifier">option_parser</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">arguments</span>)
 
   <span class="ruby-identifier">load_config</span>
@@ -1412,7 +1411,7 @@
           
           <div class="method-source-code" id="post_opts-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 285</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">post_opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post_opts</span>(<span class="ruby-identifier">opts</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -1444,7 +1443,7 @@
           
           <div class="method-source-code" id="pre_opts-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 243</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">pre_opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pre_opts</span>(<span class="ruby-identifier">opts</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -1476,7 +1475,7 @@
           
           <div class="method-source-code" id="puts-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 138</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
   <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1509,7 +1508,7 @@
           
           <div class="method-source-code" id="quit-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 146</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">quit</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">include_usage</span> = <span class="ruby-identifier">msg</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">quit</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">include_usage</span> = <span class="ruby-identifier">msg</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">false</span>)
   <span class="ruby-identifier">out</span> = []
 
   <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{progname}: #{msg}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>
@@ -1547,7 +1546,7 @@
           
           <div class="method-source-code" id="shut-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 160</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">shut</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-value">0</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shut</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-value">0</span>)
   <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>
   <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">status</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1581,7 +1580,7 @@
           
           <div class="method-source-code" id="stdio-3F-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 190</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">stdio?</span>(<span class="ruby-identifier">file</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stdio?</span>(<span class="ruby-identifier">file</span>)
   <span class="ruby-identifier">file</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;-&#39;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1614,7 +1613,7 @@
           
           <div class="method-source-code" id="verbose_opts-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 260</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">verbose_opts</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">verbose_opts</span>(<span class="ruby-identifier">opts</span>)
   <span class="ruby-identifier">verbose</span>, <span class="ruby-identifier">debug</span> = <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:verbose</span>), <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:debug</span>)
 
   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">switch</span>(<span class="ruby-value">:verbose</span>, <span class="ruby-string">&#39;Print verbose output&#39;</span>) {
@@ -1656,7 +1655,7 @@
           
           <div class="method-source-code" id="warn-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 142</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">warn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">warn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
   <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1689,7 +1688,7 @@
           
           <div class="method-source-code" id="write-3F-source">
             <pre><span class="ruby-comment"># File lib/cyclops.rb, line 186</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">write?</span>(<span class="ruby-identifier">mode</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write?</span>(<span class="ruby-identifier">mode</span>)
   <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/w/</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -1709,8 +1708,8 @@
 
 
 <footer id="validator-badges" role="contentinfo">
-  <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

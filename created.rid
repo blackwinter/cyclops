@@ -1,7 +1,7 @@
-Fri, 02 Oct 2015 12:16:02 +0200
-README	Fri, 02 Oct 2015 12:13:08 +0200
-COPYING	Fri, 11 Apr 2014 17:14:41 +0200
-ChangeLog	Fri, 02 Oct 2015 12:14:48 +0200
-lib/cyclops.rb	Fri, 02 Oct 2015 12:13:22 +0200
-lib/cyclops/version.rb	Fri, 02 Oct 2015 12:15:28 +0200
-lib/cyclops/option_parser_extension.rb	Mon, 01 Sep 2014 16:01:45 +0200
+Sat, 16 Jun 2018 09:41:47 +0200
+README	Sat, 16 Jun 2018 09:30:13 +0200
+COPYING	Fri, 11 Apr 2014 22:49:43 +0200
+ChangeLog	Sat, 16 Jun 2018 09:11:10 +0200
+lib/cyclops.rb	Sat, 16 Jun 2018 09:21:30 +0200
+lib/cyclops/version.rb	Sat, 16 Jun 2018 09:29:44 +0200
+lib/cyclops/option_parser_extension.rb	Mon, 01 Sep 2014 18:06:10 +0200

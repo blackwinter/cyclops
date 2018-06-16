@@ -4,10 +4,11 @@
 <head>
 <meta charset="UTF-8">
 
-<title>module Cyclops::OptionParserExtension - cyclops Application documentation (v0.2.0)</title>
+<title>module Cyclops::OptionParserExtension - cyclops Application documentation (v0.3.0)</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
 </script>
 
 <script src="../js/jquery.js"></script>
@@ -88,8 +89,6 @@
     
   </section>
 
-  
-  
   
   <section id="5Buntitled-5D" class="documentation-section">
     
@@ -172,8 +171,8 @@
           
           <div class="method-source-code" id="keys-source">
             <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 39</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">keys</span>
-  { <span class="ruby-identifier">used</span><span class="ruby-operator">:</span> <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">top</span>.<span class="ruby-identifier">short</span>.<span class="ruby-identifier">keys</span>, <span class="ruby-identifier">free</span><span class="ruby-operator">:</span> <span class="ruby-constant">KEY_POOL</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">keys</span> }
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keys</span>
+  { <span class="ruby-value">used:</span> <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">top</span>.<span class="ruby-identifier">short</span>.<span class="ruby-identifier">keys</span>, <span class="ruby-value">free:</span> <span class="ruby-constant">KEY_POOL</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">keys</span> }
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -218,7 +217,7 @@ optional.</p>
           
           <div class="method-source-code" id="option-source">
             <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 61</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">option</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">option</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">sym</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
 
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">OPTION_RE</span>
@@ -250,7 +249,7 @@ optional.</p>
         
         <div class="method-heading">
           <span class="method-name">separator</span><span
-            class="method-args">(string = '')</span>
+            class="method-args">(string = &#39;&#39;)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -271,7 +270,7 @@ optional.</p>
           
           <div class="method-source-code" id="separator-source">
             <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 43</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">separator</span>(<span class="ruby-identifier">string</span> = <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">separator</span>(<span class="ruby-identifier">string</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-keyword">super</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -320,7 +319,7 @@ line.</p>
           
           <div class="method-source-code" id="switch-source">
             <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 96</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">switch</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">switch</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">sym</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
 
   <span class="ruby-identifier">name</span>, <span class="ruby-identifier">opt</span> = <span class="ruby-node">$1</span>, <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-node">$2</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">SWITCH_RE</span>
@@ -378,7 +377,7 @@ line.</p>
           
           <div class="method-source-code" id="__on_opts-source">
             <pre><span class="ruby-comment"># File lib/cyclops/option_parser_extension.rb, line 119</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">sym</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">__on_opts</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">sym</span>)
   <span class="ruby-identifier">args</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-value">0</span>, <span class="ruby-node">&quot;-#{args[0].is_a?(Symbol) ? args.shift : name[0]}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">sym</span>
   <span class="ruby-identifier">args</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">sym</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-node">&quot;--#{name.to_s.tr(&#39;_&#39;, &#39;-&#39;)}&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -399,8 +398,8 @@ line.</p>
 
 
 <footer id="validator-badges" role="contentinfo">
-  <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
